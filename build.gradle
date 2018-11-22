@@ -1,0 +1,32 @@
+apply plugin: 'com.android.library'
+
+android {
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs=['src/main/java']
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    defaultConfig {
+        targetSdkVersion 28
+        minSdkVersion 14
+    }
+
+    dependencies {
+        api 'com.google.protobuf:protobuf-java:2.6.0'
+        compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.7'
+        compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.7'
+        compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+        compile group: 'org.jmdns', name: 'jmdns', version: '3.5.4'
+
+        testImplementation 'junit:junit:4.12'
+    }
+
+    compileSdkVersion project.hasProperty('global_compileSdkVersion') ? global_compileSdkVersion : 28
+    buildToolsVersion project.hasProperty('global_buildToolsVersion') ? global_buildToolsVersion : '28.0.3'
+}
