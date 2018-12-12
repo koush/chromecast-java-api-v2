@@ -19,6 +19,7 @@ import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceEvent;
 import javax.jmdns.ServiceListener;
 import java.io.IOException;
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -94,7 +95,7 @@ public final class ChromeCasts {
             if (addr != null) {
                 mDNS = JmDNS.create(addr);
             } else {
-                mDNS = JmDNS.create();
+                mDNS = JmDNS.create(InetAddress.getByName("0.0.0.0"));
             }
             mDNS.addServiceListener(ChromeCast.SERVICE_TYPE, listener);
         }
