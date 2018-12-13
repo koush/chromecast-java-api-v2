@@ -18,11 +18,11 @@ android {
     }
 
     dependencies {
-        api 'com.google.protobuf:protobuf-java:2.6.0'
-        compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.7'
-        compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.7'
-        compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
-        compile group: 'org.jmdns', name: 'jmdns', version: '3.5.4'
+        implementation 'com.google.protobuf:protobuf-java:2.6.0'
+        implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.7'
+        implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.7'
+        implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+        implementation group: 'org.jmdns', name: 'jmdns', version: '3.5.4'
 
         testImplementation 'junit:junit:4.12'
     }
