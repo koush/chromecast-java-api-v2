@@ -111,7 +111,7 @@ public final class ChromeCasts {
     /**
      * Starts ChromeCast device discovery.
      */
-    public static void startDiscovery() throws IOException {
+    synchronized public static void startDiscovery() throws IOException {
         INSTANCE.doStartDiscovery(null);
     }
 
@@ -120,21 +120,21 @@ public final class ChromeCasts {
      *
      * @param addr the address of the interface that should be used for discovery
      */
-    public static void startDiscovery(InetAddress addr) throws IOException {
+    synchronized public static void startDiscovery(InetAddress addr) throws IOException {
         INSTANCE.doStartDiscovery(addr);
     }
 
     /**
      * Stops ChromeCast device discovery.
      */
-    public static void stopDiscovery() throws IOException {
+    synchronized public static void stopDiscovery() throws IOException {
         INSTANCE.doStopDiscovery();
     }
 
     /**
      * Restarts discovery by sequentially calling 'stop' and 'start' methods.
      */
-    public static void restartDiscovery() throws IOException {
+    synchronized public static void restartDiscovery() throws IOException {
         stopDiscovery();
         startDiscovery();
     }
@@ -144,7 +144,7 @@ public final class ChromeCasts {
      *
      * @param addr the address of the interface that should be used for discovery
      */
-    public static void restartDiscovery(InetAddress addr) throws IOException {
+    synchronized public static void restartDiscovery(InetAddress addr) throws IOException {
         stopDiscovery();
         startDiscovery(addr);
     }
